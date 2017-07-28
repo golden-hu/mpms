@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maopao.mapper.bcf.BcfLogDAO">
+  <resultMap id="BaseResultMap" type="com.maopao.entity.bcf.BcfLog">
+    <id column="LGID" jdbcType="INTEGER" property="lgid" />
+    <result column="LG_Type" jdbcType="INTEGER" property="lgType" />
+    <result column="PUID" jdbcType="INTEGER" property="puid" />
+    <result column="CN_Name" jdbcType="VARCHAR" property="cnName" />
+    <result column="EN_Name" jdbcType="VARCHAR" property="enName" />
+    <result column="At_Where" jdbcType="VARCHAR" property="atWhere" />
+    <result column="At_IPGEO" jdbcType="VARCHAR" property="atIpgeo" />
+    <result column="On_When" jdbcType="TIMESTAMP" property="onWhen" />
+    <result column="Vs_Who" jdbcType="VARCHAR" property="vsWho" />
+    <result column="Vs_Who_Key" jdbcType="VARCHAR" property="vsWhoKey" />
+    <result column="State" jdbcType="SMALLINT" property="state" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.maopao.entity.bcf.BcfLogWithBLOBs">
+    <result column="Do_What" jdbcType="LONGVARCHAR" property="doWhat" />
+    <result column="Note" jdbcType="LONGVARCHAR" property="note" />
+    <result column="Exe_SQL" jdbcType="LONGVARCHAR" property="exeSql" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    LGID, LG_Type, PUID, CN_Name, EN_Name, At_Where, At_IPGEO, On_When, Vs_Who, Vs_Who_Key, 
+    State
+  </sql>
+  <sql id="Blob_Column_List">
+    Do_What, Note, Exe_SQL
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.maopao.entity.bcf.BcfLogExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bcf_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.maopao.entity.bcf.BcfLogExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bcf_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bcf_log
+    where LGID = #{lgid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bcf_log
+    where LGID = #{lgid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.maopao.entity.bcf.BcfLogExample">
+    delete from bcf_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.maopao.entity.bcf.BcfLogWithBLOBs">
+    insert into bcf_log (LGID, LG_Type, PUID, 
+      CN_Name, EN_Name, At_Where, 
+      At_IPGEO, On_When, Vs_Who, 
+      Vs_Who_Key, State, Do_What, 
+      Note, Exe_SQL)
+    values (#{lgid,jdbcType=INTEGER}, #{lgType,jdbcType=INTEGER}, #{puid,jdbcType=INTEGER}, 
+      #{cnName,jdbcType=VARCHAR}, #{enName,jdbcType=VARCHAR}, #{atWhere,jdbcType=VARCHAR}, 
+      #{atIpgeo,jdbcType=VARCHAR}, #{onWhen,jdbcType=TIMESTAMP}, #{vsWho,jdbcType=VARCHAR}, 
+      #{vsWhoKey,jdbcType=VARCHAR}, #{state,jdbcType=SMALLINT}, #{doWhat,jdbcType=LONGVARCHAR}, 
+      #{note,jdbcType=LONGVARCHAR}, #{exeSql,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.maopao.entity.bcf.BcfLogWithBLOBs">
+    insert into bcf_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lgid != null">
+        LGID,
+      </if>
+      <if test="lgType != null">
+        LG_Type,
+      </if>
+      <if test="puid != null">
+        PUID,
+      </if>
+      <if test="cnName != null">
+        CN_Name,
+      </if>
+      <if test="enName != null">
+        EN_Name,
+      </if>
+      <if test="atWhere != null">
+        At_Where,
+      </if>
+      <if test="atIpgeo != null">
+        At_IPGEO,
+      </if>
+      <if test="onWhen != null">
+        On_When,
+      </if>
+      <if test="vsWho != null">
+        Vs_Who,
+      </if>
+      <if test="vsWhoKey != null">
+        Vs_Who_Key,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+      <if test="doWhat != null">
+        Do_What,
+      </if>
+      <if test="note != null">
+        Note,
+      </if>
+      <if test="exeSql != null">
+        Exe_SQL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lgid != null">
+        #{lgid,jdbcType=INTEGER},
+      </if>
+      <if test="lgType != null">
+        #{lgType,jdbcType=INTEGER},
+      </if>
+      <if test="puid != null">
+        #{puid,jdbcType=INTEGER},
+      </if>
+      <if test="cnName != null">
+        #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="atWhere != null">
+        #{atWhere,jdbcType=VARCHAR},
+      </if>
+      <if test="atIpgeo != null">
+        #{atIpgeo,jdbcType=VARCHAR},
+      </if>
+      <if test="onWhen != null">
+        #{onWhen,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vsWho != null">
+        #{vsWho,jdbcType=VARCHAR},
+      </if>
+      <if test="vsWhoKey != null">
+        #{vsWhoKey,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=SMALLINT},
+      </if>
+      <if test="doWhat != null">
+        #{doWhat,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="exeSql != null">
+        #{exeSql,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.maopao.entity.bcf.BcfLogExample" resultType="java.lang.Long">
+    select count(*) from bcf_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update bcf_log
+    <set>
+      <if test="record.lgid != null">
+        LGID = #{record.lgid,jdbcType=INTEGER},
+      </if>
+      <if test="record.lgType != null">
+        LG_Type = #{record.lgType,jdbcType=INTEGER},
+      </if>
+      <if test="record.puid != null">
+        PUID = #{record.puid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cnName != null">
+        CN_Name = #{record.cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enName != null">
+        EN_Name = #{record.enName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.atWhere != null">
+        At_Where = #{record.atWhere,jdbcType=VARCHAR},
+      </if>
+      <if test="record.atIpgeo != null">
+        At_IPGEO = #{record.atIpgeo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.onWhen != null">
+        On_When = #{record.onWhen,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.vsWho != null">
+        Vs_Who = #{record.vsWho,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vsWhoKey != null">
+        Vs_Who_Key = #{record.vsWhoKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null">
+        State = #{record.state,jdbcType=SMALLINT},
+      </if>
+      <if test="record.doWhat != null">
+        Do_What = #{record.doWhat,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.note != null">
+        Note = #{record.note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.exeSql != null">
+        Exe_SQL = #{record.exeSql,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update bcf_log
+    set LGID = #{record.lgid,jdbcType=INTEGER},
+      LG_Type = #{record.lgType,jdbcType=INTEGER},
+      PUID = #{record.puid,jdbcType=INTEGER},
+      CN_Name = #{record.cnName,jdbcType=VARCHAR},
+      EN_Name = #{record.enName,jdbcType=VARCHAR},
+      At_Where = #{record.atWhere,jdbcType=VARCHAR},
+      At_IPGEO = #{record.atIpgeo,jdbcType=VARCHAR},
+      On_When = #{record.onWhen,jdbcType=TIMESTAMP},
+      Vs_Who = #{record.vsWho,jdbcType=VARCHAR},
+      Vs_Who_Key = #{record.vsWhoKey,jdbcType=VARCHAR},
+      State = #{record.state,jdbcType=SMALLINT},
+      Do_What = #{record.doWhat,jdbcType=LONGVARCHAR},
+      Note = #{record.note,jdbcType=LONGVARCHAR},
+      Exe_SQL = #{record.exeSql,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update bcf_log
+    set LGID = #{record.lgid,jdbcType=INTEGER},
+      LG_Type = #{record.lgType,jdbcType=INTEGER},
+      PUID = #{record.puid,jdbcType=INTEGER},
+      CN_Name = #{record.cnName,jdbcType=VARCHAR},
+      EN_Name = #{record.enName,jdbcType=VARCHAR},
+      At_Where = #{record.atWhere,jdbcType=VARCHAR},
+      At_IPGEO = #{record.atIpgeo,jdbcType=VARCHAR},
+      On_When = #{record.onWhen,jdbcType=TIMESTAMP},
+      Vs_Who = #{record.vsWho,jdbcType=VARCHAR},
+      Vs_Who_Key = #{record.vsWhoKey,jdbcType=VARCHAR},
+      State = #{record.state,jdbcType=SMALLINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.maopao.entity.bcf.BcfLogWithBLOBs">
+    update bcf_log
+    <set>
+      <if test="lgType != null">
+        LG_Type = #{lgType,jdbcType=INTEGER},
+      </if>
+      <if test="puid != null">
+        PUID = #{puid,jdbcType=INTEGER},
+      </if>
+      <if test="cnName != null">
+        CN_Name = #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        EN_Name = #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="atWhere != null">
+        At_Where = #{atWhere,jdbcType=VARCHAR},
+      </if>
+      <if test="atIpgeo != null">
+        At_IPGEO = #{atIpgeo,jdbcType=VARCHAR},
+      </if>
+      <if test="onWhen != null">
+        On_When = #{onWhen,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vsWho != null">
+        Vs_Who = #{vsWho,jdbcType=VARCHAR},
+      </if>
+      <if test="vsWhoKey != null">
+        Vs_Who_Key = #{vsWhoKey,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=SMALLINT},
+      </if>
+      <if test="doWhat != null">
+        Do_What = #{doWhat,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="note != null">
+        Note = #{note,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="exeSql != null">
+        Exe_SQL = #{exeSql,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where LGID = #{lgid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.maopao.entity.bcf.BcfLogWithBLOBs">
+    update bcf_log
+    set LG_Type = #{lgType,jdbcType=INTEGER},
+      PUID = #{puid,jdbcType=INTEGER},
+      CN_Name = #{cnName,jdbcType=VARCHAR},
+      EN_Name = #{enName,jdbcType=VARCHAR},
+      At_Where = #{atWhere,jdbcType=VARCHAR},
+      At_IPGEO = #{atIpgeo,jdbcType=VARCHAR},
+      On_When = #{onWhen,jdbcType=TIMESTAMP},
+      Vs_Who = #{vsWho,jdbcType=VARCHAR},
+      Vs_Who_Key = #{vsWhoKey,jdbcType=VARCHAR},
+      State = #{state,jdbcType=SMALLINT},
+      Do_What = #{doWhat,jdbcType=LONGVARCHAR},
+      Note = #{note,jdbcType=LONGVARCHAR},
+      Exe_SQL = #{exeSql,jdbcType=LONGVARCHAR}
+    where LGID = #{lgid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.maopao.entity.bcf.BcfLog">
+    update bcf_log
+    set LG_Type = #{lgType,jdbcType=INTEGER},
+      PUID = #{puid,jdbcType=INTEGER},
+      CN_Name = #{cnName,jdbcType=VARCHAR},
+      EN_Name = #{enName,jdbcType=VARCHAR},
+      At_Where = #{atWhere,jdbcType=VARCHAR},
+      At_IPGEO = #{atIpgeo,jdbcType=VARCHAR},
+      On_When = #{onWhen,jdbcType=TIMESTAMP},
+      Vs_Who = #{vsWho,jdbcType=VARCHAR},
+      Vs_Who_Key = #{vsWhoKey,jdbcType=VARCHAR},
+      State = #{state,jdbcType=SMALLINT}
+    where LGID = #{lgid,jdbcType=INTEGER}
+  </update>
+
+</mapper>

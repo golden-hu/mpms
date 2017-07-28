@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maopao.mapper.msg.TmpMessageDAO">
+  <resultMap id="BaseResultMap" type="com.maopao.entity.msg.TmpMessage">
+    <id column="row_id" jdbcType="INTEGER" property="rowId" />
+    <result column="text" jdbcType="VARCHAR" property="text" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="plantform" jdbcType="INTEGER" property="plantform" />
+    <result column="log_idata" jdbcType="INTEGER" property="logIdata" />
+    <result column="log_datetime" jdbcType="TIMESTAMP" property="logDatetime" />
+    <result column="is_complete" jdbcType="INTEGER" property="isComplete" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="j_msg_id" jdbcType="BIGINT" property="jMsgId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="city_code" jdbcType="INTEGER" property="cityCode" />
+    <result column="oper_uid" jdbcType="BIGINT" property="operUid" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="to_uids" jdbcType="VARCHAR" property="toUids" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="pre_datetime" jdbcType="TIMESTAMP" property="preDatetime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    row_id, text, content, plantform, log_idata, log_datetime, is_complete, img, url, 
+    j_msg_id, type, city_code, oper_uid, sex, to_uids, city_name, pre_datetime
+  </sql>
+  <select id="selectByExample" parameterType="com.maopao.entity.msg.TmpMessageExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tmp_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tmp_message
+    where row_id = #{rowId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tmp_message
+    where row_id = #{rowId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.maopao.entity.msg.TmpMessageExample">
+    delete from tmp_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.maopao.entity.msg.TmpMessage">
+    insert into tmp_message (row_id, text, content, 
+      plantform, log_idata, log_datetime, 
+      is_complete, img, url, 
+      j_msg_id, type, city_code, 
+      oper_uid, sex, to_uids, 
+      city_name, pre_datetime)
+    values (#{rowId,jdbcType=INTEGER}, #{text,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{plantform,jdbcType=INTEGER}, #{logIdata,jdbcType=INTEGER}, #{logDatetime,jdbcType=TIMESTAMP}, 
+      #{isComplete,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{jMsgId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{cityCode,jdbcType=INTEGER}, 
+      #{operUid,jdbcType=BIGINT}, #{sex,jdbcType=INTEGER}, #{toUids,jdbcType=VARCHAR}, 
+      #{cityName,jdbcType=VARCHAR}, #{preDatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.maopao.entity.msg.TmpMessage">
+    insert into tmp_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rowId != null">
+        row_id,
+      </if>
+      <if test="text != null">
+        text,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="plantform != null">
+        plantform,
+      </if>
+      <if test="logIdata != null">
+        log_idata,
+      </if>
+      <if test="logDatetime != null">
+        log_datetime,
+      </if>
+      <if test="isComplete != null">
+        is_complete,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="jMsgId != null">
+        j_msg_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="cityCode != null">
+        city_code,
+      </if>
+      <if test="operUid != null">
+        oper_uid,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="toUids != null">
+        to_uids,
+      </if>
+      <if test="cityName != null">
+        city_name,
+      </if>
+      <if test="preDatetime != null">
+        pre_datetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rowId != null">
+        #{rowId,jdbcType=INTEGER},
+      </if>
+      <if test="text != null">
+        #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="plantform != null">
+        #{plantform,jdbcType=INTEGER},
+      </if>
+      <if test="logIdata != null">
+        #{logIdata,jdbcType=INTEGER},
+      </if>
+      <if test="logDatetime != null">
+        #{logDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isComplete != null">
+        #{isComplete,jdbcType=INTEGER},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="jMsgId != null">
+        #{jMsgId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="cityCode != null">
+        #{cityCode,jdbcType=INTEGER},
+      </if>
+      <if test="operUid != null">
+        #{operUid,jdbcType=BIGINT},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="toUids != null">
+        #{toUids,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="preDatetime != null">
+        #{preDatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.maopao.entity.msg.TmpMessageExample" resultType="java.lang.Long">
+    select count(*) from tmp_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tmp_message
+    <set>
+      <if test="record.rowId != null">
+        row_id = #{record.rowId,jdbcType=INTEGER},
+      </if>
+      <if test="record.text != null">
+        text = #{record.text,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.plantform != null">
+        plantform = #{record.plantform,jdbcType=INTEGER},
+      </if>
+      <if test="record.logIdata != null">
+        log_idata = #{record.logIdata,jdbcType=INTEGER},
+      </if>
+      <if test="record.logDatetime != null">
+        log_datetime = #{record.logDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isComplete != null">
+        is_complete = #{record.isComplete,jdbcType=INTEGER},
+      </if>
+      <if test="record.img != null">
+        img = #{record.img,jdbcType=VARCHAR},
+      </if>
+      <if test="record.url != null">
+        url = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jMsgId != null">
+        j_msg_id = #{record.jMsgId,jdbcType=BIGINT},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityCode != null">
+        city_code = #{record.cityCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.operUid != null">
+        oper_uid = #{record.operUid,jdbcType=BIGINT},
+      </if>
+      <if test="record.sex != null">
+        sex = #{record.sex,jdbcType=INTEGER},
+      </if>
+      <if test="record.toUids != null">
+        to_uids = #{record.toUids,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityName != null">
+        city_name = #{record.cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.preDatetime != null">
+        pre_datetime = #{record.preDatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tmp_message
+    set row_id = #{record.rowId,jdbcType=INTEGER},
+    text = #{record.text,jdbcType=VARCHAR},
+    content = #{record.content,jdbcType=VARCHAR},
+    plantform = #{record.plantform,jdbcType=INTEGER},
+    log_idata = #{record.logIdata,jdbcType=INTEGER},
+    log_datetime = #{record.logDatetime,jdbcType=TIMESTAMP},
+    is_complete = #{record.isComplete,jdbcType=INTEGER},
+    img = #{record.img,jdbcType=VARCHAR},
+    url = #{record.url,jdbcType=VARCHAR},
+    j_msg_id = #{record.jMsgId,jdbcType=BIGINT},
+    type = #{record.type,jdbcType=INTEGER},
+    city_code = #{record.cityCode,jdbcType=INTEGER},
+    oper_uid = #{record.operUid,jdbcType=BIGINT},
+    sex = #{record.sex,jdbcType=INTEGER},
+    to_uids = #{record.toUids,jdbcType=VARCHAR},
+    city_name = #{record.cityName,jdbcType=VARCHAR},
+    pre_datetime = #{record.preDatetime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.maopao.entity.msg.TmpMessage">
+    update tmp_message
+    <set>
+      <if test="text != null">
+        text = #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="plantform != null">
+        plantform = #{plantform,jdbcType=INTEGER},
+      </if>
+      <if test="logIdata != null">
+        log_idata = #{logIdata,jdbcType=INTEGER},
+      </if>
+      <if test="logDatetime != null">
+        log_datetime = #{logDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isComplete != null">
+        is_complete = #{isComplete,jdbcType=INTEGER},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="jMsgId != null">
+        j_msg_id = #{jMsgId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="cityCode != null">
+        city_code = #{cityCode,jdbcType=INTEGER},
+      </if>
+      <if test="operUid != null">
+        oper_uid = #{operUid,jdbcType=BIGINT},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="toUids != null">
+        to_uids = #{toUids,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="preDatetime != null">
+        pre_datetime = #{preDatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where row_id = #{rowId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.maopao.entity.msg.TmpMessage">
+    update tmp_message
+    set text = #{text,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      plantform = #{plantform,jdbcType=INTEGER},
+      log_idata = #{logIdata,jdbcType=INTEGER},
+      log_datetime = #{logDatetime,jdbcType=TIMESTAMP},
+      is_complete = #{isComplete,jdbcType=INTEGER},
+      img = #{img,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      j_msg_id = #{jMsgId,jdbcType=BIGINT},
+      type = #{type,jdbcType=INTEGER},
+      city_code = #{cityCode,jdbcType=INTEGER},
+      oper_uid = #{operUid,jdbcType=BIGINT},
+      sex = #{sex,jdbcType=INTEGER},
+      to_uids = #{toUids,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      pre_datetime = #{preDatetime,jdbcType=TIMESTAMP}
+    where row_id = #{rowId,jdbcType=INTEGER}
+  </update>
+
+</mapper>

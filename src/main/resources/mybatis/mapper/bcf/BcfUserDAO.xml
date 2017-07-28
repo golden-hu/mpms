@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maopao.mapper.bcf.BcfUserDAO">
+  <resultMap id="BaseResultMap" type="com.maopao.entity.bcf.BcfUser">
+    <id column="PUID" jdbcType="INTEGER" property="puid" />
+    <result column="User_Id" jdbcType="VARCHAR" property="userId" />
+    <result column="OUT_OBJT" jdbcType="INTEGER" property="outObjt" />
+    <result column="OUT_OBJT_ID" jdbcType="INTEGER" property="outObjtId" />
+    <result column="CN_Name" jdbcType="VARCHAR" property="cnName" />
+    <result column="EN_Name" jdbcType="VARCHAR" property="enName" />
+    <result column="PW_Mail" jdbcType="VARCHAR" property="pwMail" />
+    <result column="Tags" jdbcType="VARCHAR" property="tags" />
+    <result column="Is_Disabled" jdbcType="BIT" property="isDisabled" />
+    <result column="Is_Visibled" jdbcType="BIT" property="isVisibled" />
+    <result column="Create_Time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="Last_Update" jdbcType="TIMESTAMP" property="lastUpdate" />
+    <result column="Pass_Wd" jdbcType="VARCHAR" property="passWd" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    PUID, User_Id, OUT_OBJT, OUT_OBJT_ID, CN_Name, EN_Name, PW_Mail, Tags, Is_Disabled, 
+    Is_Visibled, Create_Time, Last_Update, Pass_Wd
+  </sql>
+  <select id="selectByExample" parameterType="com.maopao.entity.bcf.BcfUserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bcf_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bcf_user
+    where PUID = #{puid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bcf_user
+    where PUID = #{puid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.maopao.entity.bcf.BcfUserExample">
+    delete from bcf_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.maopao.entity.bcf.BcfUser">
+    insert into bcf_user (PUID, User_Id, OUT_OBJT, 
+      OUT_OBJT_ID, CN_Name, EN_Name, 
+      PW_Mail, Tags, Is_Disabled, 
+      Is_Visibled, Create_Time, Last_Update, 
+      Pass_Wd)
+    values (#{puid,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{outObjt,jdbcType=INTEGER}, 
+      #{outObjtId,jdbcType=INTEGER}, #{cnName,jdbcType=VARCHAR}, #{enName,jdbcType=VARCHAR}, 
+      #{pwMail,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, #{isDisabled,jdbcType=BIT}, 
+      #{isVisibled,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, #{lastUpdate,jdbcType=TIMESTAMP}, 
+      #{passWd,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.maopao.entity.bcf.BcfUser">
+    insert into bcf_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="puid != null">
+        PUID,
+      </if>
+      <if test="userId != null">
+        User_Id,
+      </if>
+      <if test="outObjt != null">
+        OUT_OBJT,
+      </if>
+      <if test="outObjtId != null">
+        OUT_OBJT_ID,
+      </if>
+      <if test="cnName != null">
+        CN_Name,
+      </if>
+      <if test="enName != null">
+        EN_Name,
+      </if>
+      <if test="pwMail != null">
+        PW_Mail,
+      </if>
+      <if test="tags != null">
+        Tags,
+      </if>
+      <if test="isDisabled != null">
+        Is_Disabled,
+      </if>
+      <if test="isVisibled != null">
+        Is_Visibled,
+      </if>
+      <if test="createTime != null">
+        Create_Time,
+      </if>
+      <if test="lastUpdate != null">
+        Last_Update,
+      </if>
+      <if test="passWd != null">
+        Pass_Wd,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="puid != null">
+        #{puid,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="outObjt != null">
+        #{outObjt,jdbcType=INTEGER},
+      </if>
+      <if test="outObjtId != null">
+        #{outObjtId,jdbcType=INTEGER},
+      </if>
+      <if test="cnName != null">
+        #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="pwMail != null">
+        #{pwMail,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="isDisabled != null">
+        #{isDisabled,jdbcType=BIT},
+      </if>
+      <if test="isVisibled != null">
+        #{isVisibled,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdate != null">
+        #{lastUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="passWd != null">
+        #{passWd,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.maopao.entity.bcf.BcfUserExample" resultType="java.lang.Long">
+    select count(*) from bcf_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update bcf_user
+    <set>
+      <if test="record.puid != null">
+        PUID = #{record.puid,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        User_Id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outObjt != null">
+        OUT_OBJT = #{record.outObjt,jdbcType=INTEGER},
+      </if>
+      <if test="record.outObjtId != null">
+        OUT_OBJT_ID = #{record.outObjtId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cnName != null">
+        CN_Name = #{record.cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enName != null">
+        EN_Name = #{record.enName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pwMail != null">
+        PW_Mail = #{record.pwMail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tags != null">
+        Tags = #{record.tags,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDisabled != null">
+        Is_Disabled = #{record.isDisabled,jdbcType=BIT},
+      </if>
+      <if test="record.isVisibled != null">
+        Is_Visibled = #{record.isVisibled,jdbcType=BIT},
+      </if>
+      <if test="record.createTime != null">
+        Create_Time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastUpdate != null">
+        Last_Update = #{record.lastUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.passWd != null">
+        Pass_Wd = #{record.passWd,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update bcf_user
+    set PUID = #{record.puid,jdbcType=INTEGER},
+      User_Id = #{record.userId,jdbcType=VARCHAR},
+      OUT_OBJT = #{record.outObjt,jdbcType=INTEGER},
+      OUT_OBJT_ID = #{record.outObjtId,jdbcType=INTEGER},
+      CN_Name = #{record.cnName,jdbcType=VARCHAR},
+      EN_Name = #{record.enName,jdbcType=VARCHAR},
+      PW_Mail = #{record.pwMail,jdbcType=VARCHAR},
+      Tags = #{record.tags,jdbcType=VARCHAR},
+      Is_Disabled = #{record.isDisabled,jdbcType=BIT},
+      Is_Visibled = #{record.isVisibled,jdbcType=BIT},
+      Create_Time = #{record.createTime,jdbcType=TIMESTAMP},
+      Last_Update = #{record.lastUpdate,jdbcType=TIMESTAMP},
+      Pass_Wd = #{record.passWd,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.maopao.entity.bcf.BcfUser">
+    update bcf_user
+    <set>
+      <if test="userId != null">
+        User_Id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="outObjt != null">
+        OUT_OBJT = #{outObjt,jdbcType=INTEGER},
+      </if>
+      <if test="outObjtId != null">
+        OUT_OBJT_ID = #{outObjtId,jdbcType=INTEGER},
+      </if>
+      <if test="cnName != null">
+        CN_Name = #{cnName,jdbcType=VARCHAR},
+      </if>
+      <if test="enName != null">
+        EN_Name = #{enName,jdbcType=VARCHAR},
+      </if>
+      <if test="pwMail != null">
+        PW_Mail = #{pwMail,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        Tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="isDisabled != null">
+        Is_Disabled = #{isDisabled,jdbcType=BIT},
+      </if>
+      <if test="isVisibled != null">
+        Is_Visibled = #{isVisibled,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        Create_Time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdate != null">
+        Last_Update = #{lastUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="passWd != null">
+        Pass_Wd = #{passWd,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PUID = #{puid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.maopao.entity.bcf.BcfUser">
+    update bcf_user
+    set User_Id = #{userId,jdbcType=VARCHAR},
+      OUT_OBJT = #{outObjt,jdbcType=INTEGER},
+      OUT_OBJT_ID = #{outObjtId,jdbcType=INTEGER},
+      CN_Name = #{cnName,jdbcType=VARCHAR},
+      EN_Name = #{enName,jdbcType=VARCHAR},
+      PW_Mail = #{pwMail,jdbcType=VARCHAR},
+      Tags = #{tags,jdbcType=VARCHAR},
+      Is_Disabled = #{isDisabled,jdbcType=BIT},
+      Is_Visibled = #{isVisibled,jdbcType=BIT},
+      Create_Time = #{createTime,jdbcType=TIMESTAMP},
+      Last_Update = #{lastUpdate,jdbcType=TIMESTAMP},
+      Pass_Wd = #{passWd,jdbcType=VARCHAR}
+    where PUID = #{puid,jdbcType=INTEGER}
+  </update>
+
+</mapper>

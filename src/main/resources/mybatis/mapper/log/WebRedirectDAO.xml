@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maopao.mapper.log.WebRedirectDAO">
+  <resultMap id="BaseResultMap" type="com.maopao.entity.log.WebRedirect">
+    <id column="web_id" jdbcType="INTEGER" property="webId" />
+    <result column="web_key" jdbcType="VARCHAR" property="webKey" />
+    <result column="web_val" jdbcType="VARCHAR" property="webVal" />
+    <result column="web_count" jdbcType="BIGINT" property="webCount" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    web_id, web_key, web_val, web_count, note
+  </sql>
+  <select id="selectByExample" parameterType="com.maopao.entity.log.WebRedirectExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from web_redirect
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from web_redirect
+    where web_id = #{webId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from web_redirect
+    where web_id = #{webId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.maopao.entity.log.WebRedirectExample">
+    delete from web_redirect
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.maopao.entity.log.WebRedirect">
+    insert into web_redirect (web_id, web_key, web_val, 
+      web_count, note)
+    values (#{webId,jdbcType=INTEGER}, #{webKey,jdbcType=VARCHAR}, #{webVal,jdbcType=VARCHAR}, 
+      #{webCount,jdbcType=BIGINT}, #{note,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.maopao.entity.log.WebRedirect">
+    insert into web_redirect
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="webId != null">
+        web_id,
+      </if>
+      <if test="webKey != null">
+        web_key,
+      </if>
+      <if test="webVal != null">
+        web_val,
+      </if>
+      <if test="webCount != null">
+        web_count,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="webId != null">
+        #{webId,jdbcType=INTEGER},
+      </if>
+      <if test="webKey != null">
+        #{webKey,jdbcType=VARCHAR},
+      </if>
+      <if test="webVal != null">
+        #{webVal,jdbcType=VARCHAR},
+      </if>
+      <if test="webCount != null">
+        #{webCount,jdbcType=BIGINT},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.maopao.entity.log.WebRedirectExample" resultType="java.lang.Long">
+    select count(*) from web_redirect
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update web_redirect
+    <set>
+      <if test="record.webId != null">
+        web_id = #{record.webId,jdbcType=INTEGER},
+      </if>
+      <if test="record.webKey != null">
+        web_key = #{record.webKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.webVal != null">
+        web_val = #{record.webVal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.webCount != null">
+        web_count = #{record.webCount,jdbcType=BIGINT},
+      </if>
+      <if test="record.note != null">
+        note = #{record.note,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update web_redirect
+    set web_id = #{record.webId,jdbcType=INTEGER},
+    web_key = #{record.webKey,jdbcType=VARCHAR},
+    web_val = #{record.webVal,jdbcType=VARCHAR},
+    web_count = #{record.webCount,jdbcType=BIGINT},
+    note = #{record.note,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.maopao.entity.log.WebRedirect">
+    update web_redirect
+    <set>
+      <if test="webKey != null">
+        web_key = #{webKey,jdbcType=VARCHAR},
+      </if>
+      <if test="webVal != null">
+        web_val = #{webVal,jdbcType=VARCHAR},
+      </if>
+      <if test="webCount != null">
+        web_count = #{webCount,jdbcType=BIGINT},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where web_id = #{webId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.maopao.entity.log.WebRedirect">
+    update web_redirect
+    set web_key = #{webKey,jdbcType=VARCHAR},
+      web_val = #{webVal,jdbcType=VARCHAR},
+      web_count = #{webCount,jdbcType=BIGINT},
+      note = #{note,jdbcType=VARCHAR}
+    where web_id = #{webId,jdbcType=INTEGER}
+  </update>
+
+</mapper>
